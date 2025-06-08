@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+    <link href="order.css" rel="stylesheet" type="text/css">
+
+    <script>
+        function goBack() {
+            
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function generateOrderId() {
+            var randomString = Math.random().toString(36).substring(2, 8); 
+            var currentDate = new Date();
+            var timestamp = currentDate.getTime(); 
+            var orderId = "ORD" + randomString + timestamp; 
+            document.getElementById("orderId").value = orderId;
+        }
+
+        function validateForm() {
+            var phoneNumberRegex = /^\d{7,}$/; 
+            var customerName = document.getElementById("customerName").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var productDetails = document.getElementById("productDetails").value;
+            var amount = document.getElementById("amount").value;
+            var deliveryAddress = document.getElementById("deliveryAddress").value;
+            var deliveryDateTime = document.getElementById("deliveryDateTime").value;
+            if (!customerName || !phoneNumber || !email || !age || !bookDetails || !amount || !deliveryAddress || !deliveryDateTime) {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (!phoneNumber.match(phoneNumberRegex)) {
+                alert("Please enter a valid phone number with at least 7 digits and no need to use '-' after 09.");
+                return false;
+            }
+           
+            return true;
+        }  
+        window.onload = function() {
+            generateOrderId();
+            document.getElementById("orderForm").addEventListener("submit", function(event) {
+                if (!validateForm()) {
+                    event.preventDefault();
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <center>
+        <form id="orderForm" method="post" action="order.php">
+            <h1>Welcome, Customer!</h1>
+            <p>Order Here</p>
+
+            <table>
+                <tr>
+                    <th colspan="2">Contact Information</th>
+                </tr>
+                <tr>
+                    <td><label for="orderId">Order ID:</label></td>
+                    <td><input type="text" id="orderId" name="orderId" required readonly></td>
+                </tr>
+                <tr>
+                    <td><label for="customerName">Name:</label></td>
+                    <td><input type="text" id="customerName" name="customerName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phoneNumber">Telephone number:</label></td>
+                    <td><input type="text" id="phoneNumber" name="phoneNumber" required></td>
+                </tr>
+
+                <tr>
+                    <th colspan="2">Product Details</th>
+                </tr>
+                <tr>
+                    <td><label for="bookDetails">Product Name:</label></td>
+                    <td><input type="text" id="productDetails" name="productDetails" required></td>
+                </tr>
+                <tr>
+                    <td><label for="amount">Amount:</label></td>
+                    <td><input type="number" id="amount" name="amount" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Delivery Information</th>
+                </tr>
+                <tr>
+                    <td><label for="deliveryAddress">Delivery Address:</label></td>
+                    <td><input type="text" id="deliveryAddress" name="deliveryAddress" required></td>
+                </tr>
+                <tr>
+                    <td><label for="deliveryDateTime">Date of delivery:</label></td>
+                    <td><input type="date" id="deliveryDateTime" name="deliveryDateTime" required></td>
+                </tr>
+
+                <tr>
+                    <th colspan="2">Additional Information</th>
+                </tr>
+                <tr>
+                    <td><label for="otherInformation">Any other Information:</label></td>
+                    <td><textarea id="otherInformation" name="otherInformation"></textarea></td>
+                </tr>
+
+                <input type="hidden" id="orderIdHidden" name="orderIdHidden">
+            </table>
+
+            <p>
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </p>
+        </form>
+    </center>
+    <button class="go-back-btn" onclick="goBack()">←</button>
+</div>
+
+</body>
+</html>

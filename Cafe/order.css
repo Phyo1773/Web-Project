@@ -1,0 +1,94 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(images/h1.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+}
+
+table {
+
+    width: 100%;
+    border-collapse:separate;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #98b5f0;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+p1{
+    padding:10px;
+    color:cyan;
+    border:0rex;
+}
+
+p1:hover {
+    background-color: #72b3ca46;
+}
+
+/* Reset default button styles */
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Primary button style */
+button[type="submit"] {
+    background-color: #573306;
+    color: white;
+}
+
+/* Secondary button style */
+button[type="reset"] {
+    background-color: #605d5d;
+    color: white;
+    margin-left: 10px; /* Add some space between buttons */
+}
+
+/* Hover effect */
+button:hover {
+    transform: translateY(-3px); /* Move button slightly up */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Active effect */
+button:active {
+    transform: translateY(1px); /* Move button slightly down when clicked */
+    box-shadow: none; /* Remove shadow */
+}
+
+.go-back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Adjust left positioning */
+    padding: 10px;
+    background-color: #573306;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.go-back-btn:hover {
+    background-color: #888;
+}
+

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Product</title>
+    <link href="add.css" rel="stylesheet" type="text/css">
+    <script>
+        function goBack() {
+         
+            window.history.back();
+        }
+    </script>
+    
+</head>
+<body>
+    <button class="go-back-btn" onclick="goBack()">←</button>
+
+    <form action="add.php" method="post" enctype="multipart/form-data">
+        <center>
+            <p>Product Adding</p>
+        </center>
+        <label for="title">Product Name:</label>
+        <input type="text" name="title" ><br>
+
+        <label for="price">Price:</label>
+        <input type="text" name="price" ><br>
+
+        <label for="image">Image:</label>
+        <input type="file" name="image" accept="image/*"><br>
+
+        <input type="submit" value="Insert Product">
+    </form>
+</body>
+</html>
